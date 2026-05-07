@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lumina — Work Smarter</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    /* ── Reset & Tokens ─────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0c0c0f;
+      --surface:   #141418;
+      --border:    #2a2a35;
+      --accent:    #e8c97a;
+      --accent2:   #a78bfa;
+      --text:      #f0ede6;
+      --muted:     #7a7a8c;
+      --r:         14px;
+      --serif:     'Playfair Display', Georgia, serif;
+      --sans:      'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── Noise Overlay ──────────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    /* ── NAV ────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 5vw;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid transparent;
+      transition: border-color .3s;
+    }
+    nav.scrolled { border-color: var(--border); }
+
+    .logo {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -.02em;
+      color: var(--accent);
+    }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: .85rem;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      background: var(--accent);
+      color: #0c0c0f;
+      font-family: var(--sans);
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .6rem 1.4rem;
+      border-radius: 99px;
+      text-decoration: none;
+      transition: opacity .2s;
+    }
+    .nav-cta:hover { opacity: .85; }
+
+    /* ── HERO ───────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 8rem 5vw 5rem;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    /* Radial glow behind hero */
+    #hero::after {
+      content: '';
+      position: absolute;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(232,201,122,.12) 0%, transparent 70%);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -55%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      border: 1px solid var(--border);
+      border-radius: 99px;
+      padding: .35rem 1rem;
+      font-size: .75rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      animation: fadeUp .8s ease both;
+    }
+
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -.03em;
+      max-width: 14ch;
+      margin: 0 auto 1.5rem;
+      animation: fadeUp .9s .1s ease both;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      max-width: 48ch;
+      margin: 0 auto 3rem;
+      color: var(--muted);
+      font-size: 1.05rem;
+      animation: fadeUp .9s .2s ease both;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeUp .9s .3s ease both;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #0c0c0f;
+      font-weight: 500;
+      font-size: .95rem;
+      padding: .85rem 2.2rem;
+      border-radius: 99px;
+      text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(232,201,122,.35);
+    }
+
+    .btn-ghost {
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: .95rem;
+      padding: .85rem 2.2rem;
+      border-radius: 99px;
+      text-decoration: none;
+      transition: border-color .2s, color .2s;
+    }
+    .btn-ghost:hover { border-color: var(--muted); color: var(--text); }
+
+    /* ── FEATURE CARDS (Graphics Section) ──────────────── */
+    #features {
+      padding: 7rem 5vw;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: .75rem;
+      font-weight: 500;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 1rem;
+    }
+
+    .section-heading {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.15;
+      max-width: 20ch;
+      margin-bottom: 4rem;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 2rem;
+      transition: transform .3s, border-color .3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(232,201,122,.04) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .card:hover { transform: translateY(-5px); border-color: #3f3f50; }
+    .card:hover::before { opacity: 1; }
+
+    .card-graphic {
+      width: 100%;
+      height: 160px;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-graphic.g1 { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); }
+    .card-graphic.g2 { background: linear-gradient(135deg, #1a1224 0%, #2d1b4e 100%); }
+    .card-graphic.g3 { background: linear-gradient(135deg, #0f2027 0%, #1a3a3a 100%); }
+
+    /* SVG graphic illustrations inside cards */
+    .card-graphic svg { width: 80px; height: 80px; }
+
+    .card h3 {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: .6rem;
+    }
+
+    .card p { color: var(--muted); font-size: .92rem; line-height: 1.65; }
+
+    /* ── STATS STRIP ────────────────────────────────────── */
+    #stats {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 4rem 5vw;
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-family: var(--serif);
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: .4rem;
+    }
+
+    .stat-label {
+      font-size: .8rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── VISUAL SHOWCASE ────────────────────────────────── */
+    #showcase {
+      padding: 7rem 5vw;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .showcase-inner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      min-height: 420px;
+    }
+
+    @media (max-width: 700px) {
+      .showcase-inner { grid-template-columns: 1fr; }
+    }
+
+    .showcase-text {
+      padding: 3.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.2rem;
+    }
+
+    .showcase-text h2 {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .showcase-text p { color: var(--muted); font-size: .95rem; }
+
+    .showcase-text ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+    }
+
+    .showcase-text li {
+      font-size: .9rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+
+    .showcase-text li::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .showcase-visual {
+      background: linear-gradient(135deg, #14121e 0%, #1e1a30 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .showcase-visual::before {
+      content: '';
+      position: absolute;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(167,139,250,.18) 0%, transparent 70%);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Fake dashboard illustration */
+    .fake-dashboard {
+      background: #1c1929;
+      border: 1px solid #2e2a40;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 280px;
+      padding: 1.2rem;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 20px 60px rgba(0,0,0,.5);
+    }
+
+    .db-bar { display: flex; align-items: center; gap: .5rem; margin-bottom: 1.2rem; }
+    .db-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .db-dot.r { background: #ff5f57; }
+    .db-dot.y { background: #febc2e; }
+    .db-dot.g { background: #28c840; }
+
+    .db-rows { display: flex; flex-direction: column; gap: .5rem; }
+    .db-row {
+      height: 10px;
+      border-radius: 5px;
+      background: #2e2a40;
+      overflow: hidden;
+      position: relative;
+    }
+    .db-row::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      width: var(--w);
+      background: linear-gradient(90deg, var(--accent2), var(--accent));
+      border-radius: 5px;
+    }
+
+    .db-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .5rem;
+      margin-top: .8rem;
+    }
+    .db-cell {
+      height: 44px;
+      border-radius: 6px;
+      background: #2e2a40;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .65rem;
+      color: var(--muted);
+      letter-spacing: .05em;
+    }
+
+    /* ── FOOTER ─────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 4rem 5vw 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.8fr repeat(3, 1fr);
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    @media (max-width: 800px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+
+    .footer-brand p {
+      color: var(--muted);
+      font-size: .88rem;
+      max-width: 28ch;
+      margin-top: .75rem;
+      line-height: 1.7;
+    }
+
+    .footer-col h4 {
+      font-size: .75rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .65rem; }
+
+    .footer-col a {
+      font-size: .88rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .footer-col a:hover { color: var(--accent); }
+
+    /* Support link highlight */
+    .support-link {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .88rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .support-link:hover { color: var(--accent); }
+
+    .support-link svg {
+      width: 14px; height: 14px;
+      opacity: .6;
+      flex-shrink: 0;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-bottom p { font-size: .8rem; color: var(--muted); }
+
+    .footer-legal { display: flex; gap: 1.5rem; }
+    .footer-legal a { font-size: .8rem; color: var(--muted); text-decoration: none; transition: color .2s; }
+    .footer-legal a:hover { color: var(--text); }
+
+    /* ── Animations ─────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ──────────────────────────────────────────── -->
+  <nav id="nav">
+    <div class="logo">Lumina</div>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#showcase">Product</a></li>
+      <li><a href="#footer">Support</a></li>
+    </ul>
+    <a href="#" class="nav-cta">Get Started</a>
+  </nav>
+
+  <!-- ── HERO ─────────────────────────────────────────── -->
+  <section id="hero">
+    <div>
+      <div class="hero-badge">✦ Now in public beta</div>
+      <h1 class="hero-title">Work <em>smarter,</em> not harder.</h1>
+      <p class="hero-sub">Lumina brings your team's tasks, insights, and collaboration into one elegant workspace — beautifully designed and powerfully built.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn-primary">Start for free</a>
+        <a href="#showcase" class="btn-ghost">See how it works</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STATS ─────────────────────────────────────────── -->
+  <div id="stats">
+    <div class="reveal">
+      <div class="stat-value">40k+</div>
+      <div class="stat-label">Active Users</div>
+    </div>
+    <div class="reveal">
+      <div class="stat-value">99.9%</div>
+      <div class="stat-label">Uptime SLA</div>
+    </div>
+    <div class="reveal">
+      <div class="stat-value">2× faster</div>
+      <div class="stat-label">Team Velocity</div>
+    </div>
+    <div class="reveal">
+      <div class="stat-value">4.9★</div>
+      <div class="stat-label">User Rating</div>
+    </div>
+  </div>
+
+  <!-- ── FEATURES ──────────────────────────────────────── -->
+  <section id="features">
+    <div class="section-label reveal">Core Features</div>
+    <h2 class="section-heading reveal">Everything your team needs in one place.</h2>
+
+    <div class="cards-grid">
+
+      <!-- Card 1 -->
+      <div class="card reveal">
+        <div class="card-graphic g1">
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="40" r="28" stroke="#e8c97a" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <circle cx="40" cy="40" r="14" fill="#e8c97a" fill-opacity=".1" stroke="#e8c97a" stroke-width="1.5"/>
+            <path d="M40 26 L40 40 L52 46" stroke="#e8c97a" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="40" cy="40" r="2.5" fill="#e8c97a"/>
+          </svg>
+        </div>
+        <h3>Real-time Analytics</h3>
+        <p>Monitor performance with live dashboards. Spot trends and make data-driven decisions instantly, without waiting for reports.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card reveal">
+        <div class="card-graphic g2">
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="18" y="28" width="16" height="22" rx="4" stroke="#a78bfa" stroke-width="1.5"/>
+            <rect x="32" y="20" width="16" height="30" rx="4" stroke="#a78bfa" stroke-width="1.5" fill="#a78bfa" fill-opacity=".08"/>
+            <rect x="46" y="32" width="16" height="18" rx="4" stroke="#a78bfa" stroke-width="1.5"/>
+            <line x1="15" y1="53" x2="65" y2="53" stroke="#a78bfa" stroke-width="1" stroke-opacity=".4"/>
+          </svg>
+        </div>
+        <h3>Smart Automation</h3>
+        <p>Automate repetitive workflows with drag-and-drop rules. Free your team for the work that truly matters.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card reveal">
+        <div class="card-graphic g3">
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="36" r="10" stroke="#5eead4" stroke-width="1.5"/>
+            <circle cx="52" cy="36" r="10" stroke="#5eead4" stroke-width="1.5"/>
+            <path d="M40 28 C38 32 38 40 40 44" stroke="#5eead4" stroke-width="1.2" stroke-linecap="round"/>
+            <circle cx="40" cy="54" r="6" fill="#5eead4" fill-opacity=".12" stroke="#5eead4" stroke-width="1.5"/>
+            <path d="M37 54 L39.5 56.5 L44 51" stroke="#5eead4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3>Team Collaboration</h3>
+        <p>Comment, assign, and co-edit in real time. Keep everyone aligned across timezones with shared context.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── SHOWCASE ───────────────────────────────────────── -->
+  <section id="showcase">
+    <div class="showcase-inner reveal">
+
+      <div class="showcase-text">
+        <p class="section-label">The Product</p>
+        <h2>A workspace built for clarity.</h2>
+        <p>Lumina's interface adapts to how your team works — not the other way around.</p>
+        <ul>
+          <li>Customizable views: kanban, list, or timeline</li>
+          <li>Integrated file management and notes</li>
+          <li>Single-click reporting for stakeholders</li>
+          <li>Role-based permissions and audit logs</li>
+        </ul>
+        <div>
+          <a href="#" class="btn-primary" style="display:inline-block;margin-top:.5rem;">Explore the product</a>
+        </div>
+      </div>
+
+      <div class="showcase-visual">
+        <!-- Decorative fake dashboard UI -->
+        <div class="fake-dashboard">
+          <div class="db-bar">
+            <div class="db-dot r"></div>
+            <div class="db-dot y"></div>
+            <div class="db-dot g"></div>
+          </div>
+          <div class="db-rows">
+            <div class="db-row" style="--w:75%;"></div>
+            <div class="db-row" style="--w:50%;"></div>
+            <div class="db-row" style="--w:88%;"></div>
+            <div class="db-row" style="--w:40%;"></div>
+          </div>
+          <div class="db-grid">
+            <div class="db-cell">Tasks ✦</div>
+            <div class="db-cell">Reports</div>
+            <div class="db-cell">Team</div>
+            <div class="db-cell">Settings</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────── -->
+  <footer id="footer">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <div class="logo">Lumina</div>
+        <p>Helping teams move faster, build better, and stay focused on what matters.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Changelog</a></li>
+          <li><a href="#">Roadmap</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li>
+            <a href="mailto:support@lumina.app" class="support-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              support@lumina.app
+            </a>
+          </li>
+          <li>
+            <a href="tel:+18005550199" class="support-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.61 19a19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-7.2A2 2 0 0 1 4.11 4h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 11.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              +1 (800) 555-0199
+            </a>
+          </li>
+          <li>
+            <a href="#" class="support-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              Live Chat
+            </a>
+          </li>
+          <li>
+            <a href="#" class="support-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+              Help Center
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Lumina, Inc. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Sticky nav shadow on scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          // stagger siblings
+          const siblings = [...e.target.parentElement.querySelectorAll('.reveal')];
+          const delay = siblings.indexOf(e.target) * 100;
+          setTimeout(() => e.target.classList.add('visible'), delay);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    reveals.forEach(el => io.observe(el));
+  </script>
+
+</body>
+</html>
