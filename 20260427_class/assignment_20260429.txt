@@ -1,0 +1,23 @@
+Create a Profile Card:
+
+Name
+Description
+Button
+Use:
+CSS styling
+Border
+Padding
+give with comment explanations
+
+
+
+Create a Landing Page:
+
+Navbar
+Hero Section
+Button
+Use:
+Flexbox
+Colors
+Spacing
+give with comment explanations

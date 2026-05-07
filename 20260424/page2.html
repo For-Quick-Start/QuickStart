@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Examples</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        fieldset { margin-bottom: 15px; padding: 10px; border: 1px solid #ccc; }
+        label { display: block; margin-top: 5px; }
+        input, select, textarea { margin-top: 5px; padding: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Form Examples</h1>
+    <form action="/submit" method="post">
+        
+        <fieldset>
+            <legend>Text & Basic Inputs</legend>
+            <label for="text">Text: <input type="text" id="text" name="text"></label>
+            <label for="password">Password: <input type="password" id="password" name="password"></label>
+            <label for="email">Email: <input type="email" id="email" name="email"></label>
+            <label for="url">URL: <input type="url" id="url" name="url"></label>
+            <label for="tel">Telephone: <input type="tel" id="tel" name="tel"></label>
+            <label for="search">Search: <input type="search" id="search" name="search"></label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Numbers & Range</legend>
+            <label for="number">Number: <input type="number" id="number" name="number" min="0" max="100"></label>
+            <label for="range">Range: <input type="range" id="range" name="range" min="0" max="100"></label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Date & Time</legend>
+            <label for="date">Date: <input type="date" id="date" name="date"></label>
+            <label for="time">Time: <input type="time" id="time" name="time"></label>
+            <label for="datetime-local">Local DateTime: <input type="datetime-local" id="datetime-local" name="datetime-local"></label>
+            <label for="month">Month: <input type="month" id="month" name="month"></label>
+            <label for="week">Week: <input type="week" id="week" name="week"></label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Selectors & Media</legend>
+            <label for="color">Color: <input type="color" id="color" name="color"></label>
+            <label for="file">File: <input type="file" id="file" name="file"></label>
+            <label for="checkbox">Checkbox: <input type="checkbox" id="checkbox" name="checkbox"></label>
+            <label for="radio1">Radio 1: <input type="radio" id="radio1" name="radio-group" value="1">
+            <label for="radio2">Radio 2: <input type="radio" id="radio2" name="radio-group" value="2"></label>
+            <label for="hidden">Hidden: <input type="hidden" id="hidden" name="hidden" value="secret"></label>
+            <label for="image">Image Submit: <input type="image" src="./img.png" width="50" alt="Submit"></label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Other Controls</legend>
+            <label for="textarea">Textarea: <textarea id="textarea" name="textarea" rows="4" cols="50"></textarea></label>
+            <label for="select">Select: 
+                <select id="select" name="select">
+                    <option value="opt1">Option 1</option>
+                    <option value="opt2">Option 2</option>
+                </select>
+            </label>
+            <label for="datalist">Datalist: <input list="options" id="datalist" name="datalist">
+                <datalist id="options">
+                    <option value="Option 1">
+                    <option value="Option 2">
+                </datalist>
+            </label>
+        </fieldset>
+
+        <button type="submit">Submit Form</button>
+    </form>
+</body>
+</html>   

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Examples</title>
+</head>
+<body>
+
+    <h1>Form Examples</h1>
+    <form action="/submit" method="post">
+        
+        <fieldset>
+            <legend>Text & Basic Inputs</legend>
+            <section><label for="text">Text: <input type="text" id="text" name="text"></label></section>
+            <section><label for="password">Password: <input type="password" id="password" name="password"></label></section>
+            <section><label for="email">Email: <input type="email" id="email" name="email"></label></section>
+            <section><label for="url">URL: <input type="url" id="url" name="url"></label></section>
+            <section><label for="tel">Telephone: <input type="tel" id="tel" name="tel"></label></section>
+            <section><label for="search">Search: <input type="search" id="search" name="search"></label></section>
+        </fieldset>
+
+        <fieldset>
+            <legend>Numbers & Range</legend>
+            <section><label for="number">Number: <input type="number" id="number" name="number" min="0" max="100"></label></section>
+            <section><label for="range">Range: <input type="range" id="range" name="range" min="0" max="100"></label></section>
+        </fieldset>
+
+        <fieldset>
+            <legend>Date & Time</legend>
+            <section><label for="date">Date: <input type="date" id="date" name="date"></label></section>
+            <section><label for="time">Time: <input type="time" id="time" name="time"></label></section>
+            <section><label for="datetime-local">Local DateTime: <input type="datetime-local" id="datetime-local" name="datetime-local"></label></section>
+            <section><label for="month">Month: <input type="month" id="month" name="month"></label></section>
+            <section><label for="week">Week: <input type="week" id="week" name="week"></label></section>
+        </fieldset>
+
+        <fieldset>
+            <legend>Selectors & Media</legend>
+            <section><label for="color">Color: <input type="color" id="color" name="color"></label></section>
+            <section><label for="file">File: <input type="file" id="file" name="file"></label></section>
+            <section><label for="checkbox">Checkbox: <input type="checkbox" id="checkbox" name="checkbox"></label></section>
+            <section><label for="radio1">Radio 1: <input type="radio" id="radio1" name="radio-group" value="1"></section>
+            <section></section>
+            <section></section>
+            <section></section>
+            
+            
+            
+            
+            <label for="radio2">Radio 2: <input type="radio" id="radio2" name="radio-group" value="2"></label>
+            <label for="hidden">Hidden: <input type="hidden" id="hidden" name="hidden" value="secret"></label>
+            <label for="image">Image Submit: <input type="image" src="./img.png" width="50" alt="Submit"></label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Other Controls</legend>
+            <label for="textarea">Textarea: <textarea id="textarea" name="textarea" rows="4" cols="50"></textarea></label>
+            <label for="select">Select: 
+                <select id="select" name="select">
+                    <option value="opt1">Option 1</option>
+                    <option value="opt2">Option 2</option>
+                </select>
+            </label>
+            <label for="datalist">Datalist: <input list="options" id="datalist" name="datalist">
+                <datalist id="options">
+                    <option value="Option 1">
+                    <option value="Option 2">
+                </datalist>
+            </label>
+        </fieldset>
+
+        <button type="submit">Submit Form</button>
+    </form>
+</body>
+</html>   

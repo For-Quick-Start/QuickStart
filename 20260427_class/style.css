@@ -1,0 +1,178 @@
+* { /* start with a reset */
+    margin: 0;
+    padding: 0;
+    /* border-style: dotted; */
+}
+
+/* element-wide directives */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: orchid;
+}
+
+h1 {
+    color: darkblue;
+    text-align: center;
+}
+
+h2 {
+    text-align: center; /* center the h2 element(s) */
+}
+
+p {
+    color: blue;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: right;
+    font-size: 44px;
+}
+
+a {
+    font-weight: bold; /* bold the fonts for links */
+}
+
+/* class-wide directives */
+
+.first {
+    color: rgb(87, 17, 201);
+    text-align: left;
+}
+
+.green {
+    color: darkgreen;
+    text-align: right;
+}
+
+.box {
+    border: 2px solid black;
+    margin: 20px;
+    padding: 30px;
+    background-color: yellow;
+    text-align: center;
+}
+
+.outer_div {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgba(32, 212, 78, 0.4);
+    padding: 25px;
+    border-width: 20px;
+    border-style: dashed;
+    border-color: rgb(10, 61, 44);
+    margin: 10px 50px;
+}
+
+.inner_div_1 { /* make each button on navbar look a little different with colors, but keep them th same size */
+    background-color: white;
+    color: black;
+    padding: 15px;
+}
+
+.inner_div_2 { /* make each button on navbar look a little different with colors, but keep them th same size */
+    background-color: black;
+    color: white;
+    padding: 15px;
+}
+
+.inner_div_3 { /* make each button on navbar look a little different with colors, but keep them th same size */
+    font-weight: bold;
+    background-color: yellow;
+    color: darkgreen;
+    padding: 15px;
+}
+
+.landing_navbar {
+    display: flex;
+    justify-content: space-between; /* even spaces between elements */
+    align-items: center; /* center elements inside this element */
+    background-color: #4caf50; /* set the background color of this element */
+    padding: 10px; /* space between border of this element and contents of this element */
+    margin: 20px; /* space border of this element and edge of surrounding element(s) */
+    border-width: 20px; /* very thick boorder */
+    border-style: dashed; /* make border a dashed line */
+    border-color: rgb(10, 61, 44); /* set teh color of the dashed borer */
+    margin: 10px 50px; /* sets the margin between this element and other elements */
+}
+
+.landing_navbar a { /* make the links in the navbar stand out with some different color */ 
+    color: rgb(133, 80, 6); /* sets the font color of the element */
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+.landing_navbar a:hover { /* make links in the navbar change color at mouseover events */
+    background-color: #45a040; /*  set background color of navbar */
+}
+
+.profile_descr {
+    color: darkblue; /* change the font color for the profile description */
+}
+
+/* id-specific directives */
+
+#second {
+    color: antiquewhite;
+    font-weight: 900;
+}
+
+#hero_text {
+    margin: 10px 30px; /* set some spacing between page edges and previous and following block elements */
+}
+
+#landing_button_outer_div { /* getting the button centered on the page */
+    height: 100px;
+    position: relative;
+    border: 0px;
+}
+
+#landing_button_inner_div { /* getting the button centered on the page */
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#landing_button { /* tweaking button to make it stand out */
+    width: 100px;
+    height: 50px;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+#profile_descr {
+    margin: 10px 30px; /* set some spacing between page edges and previous and following block elements */
+}
+
+#profile_button_outer_div { /* getting the button centered on the page */
+    height: 100px;
+    position: relative;
+    border: 0px;
+}
+
+#profile_button_inner_div { /* getting the button centered on the page */
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#profile_button {
+    background-color: rgb(141, 58, 58); /* coloring the button */
+    color: black; /* contrasting button text against button color */
+    text-align: center; /* center the button on the page */
+    font-size: larger; /* bigger font than buttons on other pages */
+    font-weight: bolder; /* bolder font than buttons on other pages */
+    padding: 20px 30px 20px 30px; /* beef up the size of the button on the landing page */
+}
+
+
+
+
+
+
+
+
+
+

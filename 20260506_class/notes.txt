@@ -1,0 +1,22 @@
+Task 1 (Easy)
+
+Create:
+
+Heading
+Button
+Alert message on click
+Task 2
+
+Create:
+
+Input field
+Button
+Show input value in alert
+Task 3
+
+Create:
+
+Paragraph
+Button
+Change paragraph text using JS
+
