@@ -1,0 +1,78 @@
+<mxfile host="Electron">
+  <diagram name="Page-1" id="n9HKqh9OhuRLL8_WjfWa">
+    <mxGraphModel dx="1414" dy="876" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="91NMRI8MDbHnRMhfH0i9-9" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="yes" vertex="1">
+          <mxGeometry height="30" width="30" x="297" y="375" as="geometry" />
+        </mxCell>
+        <mxCell id="91NMRI8MDbHnRMhfH0i9-4" edge="1" parent="1" source="91NMRI8MDbHnRMhfH0i9-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="91NMRI8MDbHnRMhfH0i9-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="91NMRI8MDbHnRMhfH0i9-1" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="start" vertex="1">
+          <mxGeometry height="80" width="120" x="152" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="91NMRI8MDbHnRMhfH0i9-5" edge="1" parent="1" source="91NMRI8MDbHnRMhfH0i9-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="91NMRI8MDbHnRMhfH0i9-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="91NMRI8MDbHnRMhfH0i9-2" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" value="get intValue&lt;br&gt;from user" vertex="1">
+          <mxGeometry height="60" width="120" x="152" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="91NMRI8MDbHnRMhfH0i9-13" edge="1" parent="1" source="91NMRI8MDbHnRMhfH0i9-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="91NMRI8MDbHnRMhfH0i9-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="91NMRI8MDbHnRMhfH0i9-3" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="is intValue&lt;br&gt;non-numeric?" vertex="1">
+          <mxGeometry height="130" width="125" x="150" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="91NMRI8MDbHnRMhfH0i9-24" edge="1" parent="1" source="91NMRI8MDbHnRMhfH0i9-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="700" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="91NMRI8MDbHnRMhfH0i9-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="print N/A" vertex="1">
+          <mxGeometry height="60" width="120" x="377" y="375" as="geometry" />
+        </mxCell>
+        <mxCell id="91NMRI8MDbHnRMhfH0i9-10" edge="1" parent="1" source="91NMRI8MDbHnRMhfH0i9-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="91NMRI8MDbHnRMhfH0i9-6" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="275" y="405" as="sourcePoint" />
+            <mxPoint x="337" y="405" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="91NMRI8MDbHnRMhfH0i9-17" edge="1" parent="1" source="91NMRI8MDbHnRMhfH0i9-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="91NMRI8MDbHnRMhfH0i9-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="91NMRI8MDbHnRMhfH0i9-18" edge="1" parent="1" source="91NMRI8MDbHnRMhfH0i9-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="91NMRI8MDbHnRMhfH0i9-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="91NMRI8MDbHnRMhfH0i9-12" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="is intValue&lt;br&gt;odd?" vertex="1">
+          <mxGeometry height="100" width="95" x="165" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="91NMRI8MDbHnRMhfH0i9-14" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="no" vertex="1">
+          <mxGeometry height="30" width="40" x="207" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="91NMRI8MDbHnRMhfH0i9-15" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="print odd" vertex="1">
+          <mxGeometry height="60" width="120" x="377" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="91NMRI8MDbHnRMhfH0i9-16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="print even" vertex="1">
+          <mxGeometry height="60" width="120" x="152" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="91NMRI8MDbHnRMhfH0i9-19" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="yes" vertex="1">
+          <mxGeometry height="15" width="30" x="297" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="91NMRI8MDbHnRMhfH0i9-20" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="no" vertex="1">
+          <mxGeometry height="30" width="40" x="207" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="91NMRI8MDbHnRMhfH0i9-21" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="end" vertex="1">
+          <mxGeometry height="60" width="100" x="540" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="91NMRI8MDbHnRMhfH0i9-22" edge="1" parent="1" source="91NMRI8MDbHnRMhfH0i9-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="91NMRI8MDbHnRMhfH0i9-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="91NMRI8MDbHnRMhfH0i9-23" edge="1" parent="1" source="91NMRI8MDbHnRMhfH0i9-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="91NMRI8MDbHnRMhfH0i9-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,13 @@
+if...else statements
+
+difference between == and === in JavaScript
+TYPE COERCION
+== will try to cast one variable to the type of the other
+example
+'5' == 5 // string on the left and int on the right
+returns true
+but
+'5' === 5
+returns false
+
+
