@@ -1,0 +1,3 @@
+3 (Lesson14)
+Create a function that generates an HTML unordered list from an array and
+and returns the generated unordered list HTML markup as a string

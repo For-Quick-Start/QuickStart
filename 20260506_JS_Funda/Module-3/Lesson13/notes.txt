@@ -1,0 +1,5 @@
+2 (Lesson13)
+Create a function that accepts an array and increments each value in the array by 1
+Assume input only contains numbers
+print the return value of the array and the original array to the console
+make sure eth original array stays intact
