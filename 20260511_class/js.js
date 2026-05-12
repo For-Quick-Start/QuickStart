@@ -14,7 +14,7 @@
 //     alert('authentication failure');
 // }
 
-function checkage(age) {
+function checkage() {
 
     let thisage = Number.parseInt(document.getElementById("age").value);
     if (thisage >= 25) {
@@ -29,7 +29,9 @@ function show() {
 }
 
 
-function howyadoin(state) {
+function howyadoin() {
+    let state = document.getElementById("how").value;
+    console.log(state);
     let response = '';
     switch(state) {
         case 'fine':
@@ -43,3 +45,25 @@ function howyadoin(state) {
     }
     alert(response);
 }
+
+let marks = 85;
+if (marks > 100) {
+    console.log("A mark that high isn't possible");
+} else if (marks >= 90 && marks <= 100) {
+    console.log("Your grade is 'A'");
+} else if (marks >= 80 && marks < 90) {
+    console.log("Your grade is 'B'");
+} else if (marks >= 70 && marks < 80) {
+    console.log("Your grade is 'C'");
+} else if (marks >= 60 && marks < 70) {
+    console.log("Your grade is 'D'");
+} else {
+    console.log("Your grade is 'F'");
+};
+
+for (let i = 1; i < 9; i++) {
+    console.log(i);
+}
+
+
+
