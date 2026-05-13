@@ -1,0 +1,18 @@
+document.querySelector(#someIdInDocument); --> returns one element
+document.querySelectorAll('h2'); --> returns an object that contains all such elements in the document
+let allH2s = document.querySelectorAll('h2');
+// allH2s is already iterable, but is not an array, however
+let allH2sArray = [...allH2s]
+// casts the object into an array
+
+// (trying to decipher what his meandering ramblings are talking about...)
+let listItems = document.querySelectorAll('#someId ~ .section-content)[0].queryselectorAll('li');
+// returns one LI element from the document
+// at this URL https://en.wikipedia.org/wiki/Mel_Brooks
+let allH2s = document.querySelectorAll('h2');
+let allH2sArray = [...allH2s];
+allH2sArray[1].textContent = "Emily Fife, family and education";
+// changes tha second section of the page from 
+// Early life, family and education
+// to
+// Emily Fife, family and education
