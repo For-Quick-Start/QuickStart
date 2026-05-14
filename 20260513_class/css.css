@@ -1,0 +1,47 @@
+body {
+    margin: 20px;
+}
+
+.form-area {
+    padding: 20px;
+}
+
+.is-prime {
+    color: darkgreen;
+    font-weight: 700;
+}
+
+.is-not-prime {
+    color: darkred;
+    font-weight: 300;
+}
+
+.js-prime-ul {
+    color: black;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.multiplication-table {
+    background-color: lightcyan;
+    color: darkblue;
+    margin: 20px auto;
+    border: 2px solid black;
+    border-collapse: collapse;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.multiplication-table-cell {
+    padding: 5px;
+    border: 2px solid black;
+    border-collapse: collapse;
+    width: 24px;
+    height: 24px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.multiplication-table-cell-edge {
+    font-weight: 900;
+    font-size: larger;
+}

@@ -1,0 +1,11 @@
+Array basic example with explanation in javascript
+
+Create multiplication table using loop
+
+Create:
+
+Input field
+Button
+Check if entered number is even or odd
+create a loop to print prime numbers
+
