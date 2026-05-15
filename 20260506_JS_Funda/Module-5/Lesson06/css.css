@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: lightcyan;
+    color: darkblue;
+}
+
+.tic-tac-toe-board {
+    margin: 20px auto;
+    border: 2px solid black;
+    border-collapse: collapse;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.tic-tac-toe-cell {
+    padding: 5px;
+    border: 2px solid black;
+    border-collapse: collapse;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    text-align: center;
+}
