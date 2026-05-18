@@ -1,0 +1,2 @@
+Module 6 - Handling DOM Element Attributes
+Lesson 1 - HTML and JavaScript 1 - with Classes: Exercise 1

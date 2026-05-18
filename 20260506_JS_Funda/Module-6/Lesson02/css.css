@@ -1,0 +1,169 @@
+/* =====================================
+   GLOBAL PAGE STYLES
+===================================== */
+
+/* Remove default spacing from browser */
+body {
+    margin: 0;
+    padding: 0;
+
+    /* Font for the entire page */
+    font-family: Arial, Helvetica, sans-serif;
+
+    /* Background color */
+    background-color: #f4f4f4;
+
+    /* Default text color */
+    color: #222;
+}
+
+/* =====================================
+   HEADER STYLES
+===================================== */
+
+.page-header {
+    text-align: center;
+    padding: 30px;
+    background-color: #1e293b;
+    color: white;
+}
+
+/* =====================================
+   NAVIGATION MENU STYLES
+===================================== */
+
+.nav-menu {
+
+    /* Horizontal flex layout */
+    display: flex;
+
+    /* Center buttons horizontally */
+    justify-content: center;
+
+    /* Space between buttons */
+    gap: 15px;
+
+    /* Spacing around navigation */
+    padding: 20px;
+
+    background-color: #334155;
+}
+
+/* =====================================
+   NAVIGATION BUTTON STYLES
+===================================== */
+
+.nav-link {
+
+    /* Internal spacing */
+    padding: 12px 20px;
+
+    /* Remove default border */
+    border: none;
+
+    /* Rounded corners */
+    border-radius: 8px;
+
+    /* Background color */
+    background-color: #64748b;
+
+    /* Text color */
+    color: white;
+
+    /* Cursor changes to pointer */
+    cursor: pointer;
+
+    /* Animation speed for hover effects */
+    transition: all 0.3s ease;
+
+    /* Font size */
+    font-size: 16px;
+}
+
+/* =====================================
+   HOVER EFFECT
+===================================== */
+
+/*
+    When the mouse hovers over a button,
+    this class changes the appearance.
+*/
+.nav-link:hover {
+    background-color: #0ea5e9;
+    transform: scale(1.05);
+}
+
+/* =====================================
+   ACTIVE NAVIGATION BUTTON
+===================================== */
+
+/*
+    This class is dynamically added
+    using JavaScript after a button
+    is clicked.
+*/
+.active-link {
+    background-color: #22c55e;
+    font-weight: bold;
+}
+
+/* =====================================
+   MAIN CONTENT CONTAINER
+===================================== */
+
+.main-container {
+    padding: 30px;
+}
+
+/* =====================================
+   CONTENT PANEL STYLES
+===================================== */
+
+/*
+    All content panels are hidden by default.
+*/
+.content-panel {
+
+    display: none;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    background-color: white;
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    animation: fadeIn 0.4s ease;
+}
+
+/* =====================================
+   ACTIVE CONTENT PANEL
+===================================== */
+
+/*
+    This class is added dynamically
+    using JavaScript to show
+    the selected content panel.
+*/
+.active-content {
+    display: block;
+}
+
+/* =====================================
+   SIMPLE FADE-IN ANIMATION
+===================================== */
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}

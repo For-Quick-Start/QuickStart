@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Custom form validation</h1>
+    <form action="#" method="GET" class="js-form">
+        <div>
+            <label>
+                E-mail:
+                <input 
+                    type="email" 
+                    class="js-email" 
+                    name="email" 
+                    value="" 
+                    placeholder="E-mail"
+                    required>
+            </label>
+        </div>
+        <div>
+            <label>
+                <input type="checkbox" name="TC" class="js-tc" />
+                I accept the terms and conditions. 
+            </label>
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+    <h2>Generic settings for T&C acceptance</h2>
+    <button class="js-always-accept">I always accept the T&C.</button>
+    <button class="js-never-accept">I never accept the T&C by default.</button>
+    <button class="js-allow-free-text-email">Allow email as free text (just once)</button>
+    <script src="form.js"></script>
+</body>
+</html>

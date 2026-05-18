@@ -1,0 +1,3 @@
+Module 6 - Handling DOM Element Attributes
+Lesson 2 - Menu html-css-javascript: Exercise 2
+

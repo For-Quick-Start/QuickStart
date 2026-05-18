@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.green {
+    background-color: #558822;
+}
+
+.lightblue {
+    background-color: lightblue;
+}
+
+.lightgrey {
+    background-color: lightgrey;
+}
+
+.orange {
+    background-color: orange;
+}
+

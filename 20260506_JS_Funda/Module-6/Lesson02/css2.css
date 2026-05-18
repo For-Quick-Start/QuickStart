@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 10px;
+}
+
+.menu-container {
+    display: inline-block;
+    min-width: 50rem;
+    border: .5rem red dotted;
+}
+
+.menu-item {
+    display: inline-block;
+    border: 1px black dotted;
+    background-color: #ddd;
+    margin-top: 3rem;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 3rem;
+    user-select: none;
+}
+
+.menu-item:hover {
+    background-color: lightblue;
+}
+
+.menu-item.selected {
+    background-color: darkred;
+    color: #bbb;
+    margin-top: 0;
+    padding-top: 3rem;
+}
+
+.menu-item.selected:hover {
+    background-color: darkred;
+}
+
+
+

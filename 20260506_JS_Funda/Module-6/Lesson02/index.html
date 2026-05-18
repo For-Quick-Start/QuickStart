@@ -1,0 +1,136 @@
+<!--
+    index.html
+    -----------------------------------------
+    This file creates the page structure.
+    It includes:
+    1. A navigation menu
+    2. A main content area
+    3. Links to the CSS and JavaScript files
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Character encoding -->
+    <meta charset="UTF-8">
+
+    <!-- Responsive mobile scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Page title shown in browser tab -->
+    <title>Dynamic Navigation Example</title>
+
+    <!-- External CSS file -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- =========================
+         PAGE HEADER
+    ========================== -->
+    <header class="page-header">
+
+        <h1>Dynamic Content Navigation</h1>
+
+        <p>
+            Hover and click the navigation buttons to dynamically
+            change classes and content styles using JavaScript.
+        </p>
+
+    </header>
+
+    <!-- =========================
+         NAVIGATION MENU
+    ========================== -->
+    <nav class="nav-menu">
+
+        <!--
+            Each button has:
+            1. A data-target attribute
+            2. A CSS class
+            3. Text to display
+        -->
+
+        <button class="nav-link active-link" data-target="content-1">
+            Home
+        </button>
+
+        <button class="nav-link" data-target="content-2">
+            Services
+        </button>
+
+        <button class="nav-link" data-target="content-3">
+            Portfolio
+        </button>
+
+        <button class="nav-link" data-target="content-4">
+            Contact
+        </button>
+
+    </nav>
+
+    <!-- =========================
+         MAIN CONTENT AREA
+    ========================== -->
+    <main class="main-container">
+
+        <!--
+            CONTENT PANEL 1
+            Visible by default
+        -->
+        <div id="content-1" class="content-panel active-content">
+
+            <h2>Home Section</h2>
+
+            <p>
+                Welcome to the home section.
+                This panel is visible when the page first loads.
+            </p>
+
+        </div>
+
+        <!-- CONTENT PANEL 2 -->
+        <div id="content-2" class="content-panel">
+
+            <h2>Services Section</h2>
+
+            <p>
+                This section explains the services offered by the website.
+            </p>
+
+        </div>
+
+        <!-- CONTENT PANEL 3 -->
+        <div id="content-3" class="content-panel">
+
+            <h2>Portfolio Section</h2>
+
+            <p>
+                This area displays projects and portfolio examples.
+            </p>
+
+        </div>
+
+        <!-- CONTENT PANEL 4 -->
+        <div id="content-4" class="content-panel">
+
+            <h2>Contact Section</h2>
+
+            <p>
+                This section contains contact information and support details.
+            </p>
+
+        </div>
+
+    </main>
+
+    <!-- External JavaScript file -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
